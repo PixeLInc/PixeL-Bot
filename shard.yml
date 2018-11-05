@@ -15,4 +15,8 @@ dependencies:
   discordcr-middleware:
     github: z64/discordcr-middleware
 
+targets:
+  sgm-bot:
+    main: src/sgm-bot.cr
+
 license: MIT
