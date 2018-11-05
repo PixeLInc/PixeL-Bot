@@ -1,12 +1,20 @@
 require "discordcr-plugin"
+
+require "discordcr-middleware"
+require "discordcr-middleware/middleware/cached_routes"
+require "discordcr-middleware/middleware/attribute"
+require "discordcr-middleware/middleware/channel"
+require "discordcr-middleware/middleware/prefix"
+require "discordcr-middleware/middleware/error"
+
 require "./plugins/*"
-require "./utils/*"
+require "./utils/rcon/rcon"
 
 module SGM::Bot
-  RCON_CLIENT = RCONClient.new("mugjet.com", 25575, "TBO4j^wUVHOfb")
-  RCON_CLIENT.authenticate
+  RCON_CLIENT = RCON::Client.connect("mugjet.com", 25575, "TBO4j^wUVHOfb")
+  CLIENT_ID   = 507730014805032980_u64
 
-  client = Discord::Client.new(token: "NTA3NzMwMDE0ODA1MDMyOTgw.Dr098Q.6147Dv1gD1_gxbkE7FCL_PlVXwk")
+  client = Discord::Client.new(token: "Bot NTA3NzMwMDE0ODA1MDMyOTgw.Dr098Q.6147Dv1gD1_gxbkE7FCL_PlVXwk")
   cache  = Discord::Cache.new(client)
   client.cache = cache
 
