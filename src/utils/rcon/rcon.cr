@@ -10,19 +10,24 @@ class RCON::Client
   end
 
   def self.connect(ip, port, password)
-    client = new(ip, port)
+    client = new(ip, port, password)
     client.login(password)
     client
   end
 
-  def self.new(ip, port)
+  def self.new(ip, port, password)
 #    new(IO::Hexdump.new(TCPSocket.new(ip, port), output: STDOUT, read: true))
-    new(TCPSocket.new(ip, port))
+    new(TCPSocket.new(ip, port), password)
   end
 
-  def initialize(@socket : IO)
+  def initialize(@socket : IO, @password : String)
     @request_id = 0
     @logged_in = false
+  end
+
+  private def retry
+    @logged_in = false
+    self.login(@password)
   end
 
   private def next_request_id
@@ -30,8 +35,13 @@ class RCON::Client
   end
 
   private def send(packet : Packet)
+    begin
     (@write_mutex ||= Mutex.new).synchronize do
       @socket.write_bytes(packet, IO::ByteFormat::LittleEndian)
+    end
+    rescue ex
+      puts "Exception writing to socket!"
+      retry
     end
   end
 
