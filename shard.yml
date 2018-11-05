@@ -1,0 +1,18 @@
+name: sgm-bot
+version: 0.1.0
+
+authors:
+  - PixeL <officialpixelinc@gmail.com>
+
+crystal: 0.26.1
+
+dependencies:
+  discordcr:
+    github: meew0/discordcr
+    branch: master
+  discordcr-plugin:
+    github: z64/discordcr-plugin
+  discordcr-middleware:
+    github: z64/discordcr-middleware
+
+license: MIT
