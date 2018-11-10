@@ -4,7 +4,7 @@ version: 0.1.0
 authors:
   - PixeL <officialpixelinc@gmail.com>
 
-crystal: 0.26.1
+crystal: 0.27.0
 
 dependencies:
   discordcr:
@@ -14,9 +14,21 @@ dependencies:
     github: z64/discordcr-plugin
   discordcr-middleware:
     github: z64/discordcr-middleware
+  slang:
+    github: jeromegn/slang
+  raze:
+    github: samueleaton/raze
+  pg:
+    github: will/crystal-pg
+  micrate:
+    github: amberframework/micrate
 
 targets:
   sgm-bot:
     main: src/sgm-bot.cr
+  micrate:
+    main: src/web/micrate.cr
+  web:
+    main: src/web/web.cr
 
 license: MIT

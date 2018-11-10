@@ -11,6 +11,8 @@ module SGM::Bot
       # TODO: Eventually let players link their mc to discord
       return if payload.author.bot
 
+      content = payload.content
+
       texts = [
         {
           text: "[Discord] ",
