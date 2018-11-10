@@ -8,8 +8,8 @@ crystal: 0.27.0
 
 dependencies:
   discordcr:
-    github: meew0/discordcr
-    branch: master
+    github: greenbigfrog/discordcr
+    branch: new-cr
   discordcr-plugin:
     github: z64/discordcr-plugin
   discordcr-middleware:

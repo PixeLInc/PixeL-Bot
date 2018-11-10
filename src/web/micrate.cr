@@ -3,7 +3,7 @@ require "pg"
 
 require "./app/config"
 
-config = SGM::Web.config.from_file("config.yml")
+config = SGM::Web::Config.from_file("config.yml")
 Micrate::DB.connection_url = config.database_url
 
 def Micrate.migrations_dir
