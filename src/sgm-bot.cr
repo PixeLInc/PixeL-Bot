@@ -15,7 +15,7 @@ module SGM::Bot
   CLIENT_ID   = 507730014805032980_u64
 
   client = Discord::Client.new(token: "Bot NTA3NzMwMDE0ODA1MDMyOTgw.Dr098Q.6147Dv1gD1_gxbkE7FCL_PlVXwk")
-  cache  = Discord::Cache.new(client)
+  cache = Discord::Cache.new(client)
   client.cache = cache
 
   Discord::Plugin.plugins.each do |plugin|
