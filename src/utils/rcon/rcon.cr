@@ -16,7 +16,7 @@ class RCON::Client
   end
 
   def self.new(ip, port, password)
-#    new(IO::Hexdump.new(TCPSocket.new(ip, port), output: STDOUT, read: true))
+    #    new(IO::Hexdump.new(TCPSocket.new(ip, port), output: STDOUT, read: true))
     new(TCPSocket.new(ip, port), password)
   end
 
@@ -25,23 +25,18 @@ class RCON::Client
     @logged_in = false
   end
 
-  private def retry
-    @logged_in = false
-    self.login(@password)
-  end
-
   private def next_request_id
     @request_id += 1
   end
 
   private def send(packet : Packet)
     begin
-    (@write_mutex ||= Mutex.new).synchronize do
-      @socket.write_bytes(packet, IO::ByteFormat::LittleEndian)
-    end
+      (@write_mutex ||= Mutex.new).synchronize do
+        @socket.write_bytes(packet, IO::ByteFormat::LittleEndian)
+      end
     rescue ex
-      puts "Exception writing to socket!"
-      retry
+      # retry.
+      puts "Failed to send packet, connection must be dead. Retrying..."
     end
   end
 
