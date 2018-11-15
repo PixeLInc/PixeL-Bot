@@ -22,6 +22,8 @@ dependencies:
     github: will/crystal-pg
   micrate:
     github: amberframework/micrate
+  sgm-binding:
+    github: pixelinc/sgm-binding
 
 targets:
   sgm-bot:

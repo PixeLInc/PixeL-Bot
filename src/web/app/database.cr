@@ -75,6 +75,17 @@ module SGM::Web
         WHERE
           discord_id = $1;
         SQL
+
+      CheckUserExist = <<-SQL
+        SELECT
+          mcuser
+        FROM
+          users
+        WHERE
+          discord_id = $1
+        LIMIT
+          1;
+      SQL
     end
 
     struct User
@@ -94,6 +105,14 @@ module SGM::Web
     end
 
     delegate close, to: @db
+
+    def get_mc(discord_id : UInt64)
+      begin
+        db.query_one(Query::CheckUserExist, discord_id, as: {String})
+      rescue ex
+        ""
+      end
+    end
 
     def create_user(discord_id : UInt64, access_token : String, verification_code : String)
       db.exec(Query::CreateUser, discord_id, access_token, verification_code)
