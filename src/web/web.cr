@@ -91,6 +91,7 @@ module SGM::Web
     end
   end
 
+  Raze.config.port = 7891
   Raze.config.host = "0.0.0.0"
   Raze.run
 end

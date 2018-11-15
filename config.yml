@@ -1,5 +1,5 @@
-host: 'http://localhost:7777'
+host: 'https://bot.pixelinc.io'
 client_id: '507730014805032980'
 client_secret: 'Y28rAr1pAaeMIwhGl6n1lGI5R5reluL9'
-database_url: 'postgresql://postgres@localhost:5432/sgm'
+database_url: 'postgresql://postgres@pg_db:5432/sgm'
 web_secret: 'TRJSDF3'

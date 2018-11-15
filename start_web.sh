@@ -1,3 +1,3 @@
 echo 'Running...'
-./bin/micrate
-./bin/web
+bin/micrate up
+bin/web

@@ -1,5 +1,6 @@
-FROM jrei/crystal-alpine
+FROM crystallang/crystal:latest
 
 RUN mkdir /app
 COPY . /app
-RUN cd /app && shards build
+WORKDIR ./app
+RUN shards build

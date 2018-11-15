@@ -24,11 +24,11 @@ dependencies:
     github: amberframework/micrate
 
 targets:
+  web:
+    main: src/web/web.cr
   sgm-bot:
     main: src/sgm-bot.cr
   micrate:
     main: src/web/micrate.cr
-  web:
-    main: src/web/web.cr
 
 license: MIT

@@ -1,2 +1,2 @@
-docker run --name bot sgm_stack /app/bin/bot
-docker run --name web -p 8080:8080 sgm_stack /app/start_web.sh
+docker run -d --name sgm_stack_bot sgm_stack bin/sgm-bot
+docker run -d --name sgm_stack_web -p 7891:7891 sgm_stack bash start_web.sh
