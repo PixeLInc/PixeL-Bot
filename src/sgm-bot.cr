@@ -18,10 +18,10 @@ module SGM::Bot
   DB = SGM::Web::DB.new(CONFIG.database_url)
   at_exit { DB.close }
 
-  RCON_CLIENT = RCON::Client.connect("mugjet.com", 25575, "TBO4j^wUVHOfb")
+  RCON_CLIENT = RCON::Client.connect("mugjet.com", 25575, "host no longer available")
   CLIENT_ID   = 507730014805032980_u64
 
-  client = Discord::Client.new(token: "Bot NTA3NzMwMDE0ODA1MDMyOTgw.Dr098Q.6147Dv1gD1_gxbkE7FCL_PlVXwk")
+  client = Discord::Client.new(token: "token invalidated")
   cache = Discord::Cache.new(client)
   client.cache = cache
 
